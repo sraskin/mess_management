@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Rails meal_cms: development">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.2">
+    <root id="1"/>
+    <database id="2" parent="1" name="meal_cms_development">
+      <ObjectId>28077</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-06-10.01:51:33.890</IntrospectionTimestamp>
+      <IntrospectionStateNumber>45366</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12381</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="deposits_id_seq">
+      <ObjectId>28113</ObjectId>
+      <StateNumber>45345</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="10" parent="3" name="meals_id_seq">
+      <ObjectId>28124</ObjectId>
+      <StateNumber>45346</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="11" parent="3" name="members_id_seq">
+      <ObjectId>28102</ObjectId>
+      <StateNumber>45344</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="12" parent="3" name="services_id_seq">
+      <ObjectId>28132</ObjectId>
+      <StateNumber>45347</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="13" parent="3" name="users_id_seq">
+      <ObjectId>28086</ObjectId>
+      <StateNumber>45343</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="14" parent="3" name="deposits">
+      <ObjectId>28115</ObjectId>
+      <StateNumber>45345</StateNumber>
+    </table>
+    <table id="15" parent="3" name="meals">
+      <ObjectId>28126</ObjectId>
+      <StateNumber>45346</StateNumber>
+    </table>
+    <table id="16" parent="3" name="members">
+      <ObjectId>28104</ObjectId>
+      <StateNumber>45344</StateNumber>
+    </table>
+    <table id="17" parent="3" name="schema_migrations">
+      <ObjectId>28079</ObjectId>
+      <StateNumber>45341</StateNumber>
+    </table>
+    <table id="18" parent="3" name="services">
+      <ObjectId>28134</ObjectId>
+      <StateNumber>45347</StateNumber>
+    </table>
+    <table id="19" parent="3" name="users">
+      <ObjectId>28088</ObjectId>
+      <StateNumber>45343</StateNumber>
+    </table>
+    <column id="20" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45345</StateNumber>
+      <SequenceName>deposits_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;deposits_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="21" parent="14" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>45345</StateNumber>
+    </column>
+    <column id="22" parent="14" name="member_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>45345</StateNumber>
+    </column>
+    <column id="23" parent="14" name="name">
+      <Position>4</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>45345</StateNumber>
+    </column>
+    <column id="24" parent="14" name="amount">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>45366</StateNumber>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="25" parent="14" name="date">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>45345</StateNumber>
+    </column>
+    <column id="26" parent="14" name="comments">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>45345</StateNumber>
+    </column>
+    <column id="27" parent="14" name="created_at">
+      <Position>8</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45345</StateNumber>
+    </column>
+    <column id="28" parent="14" name="updated_at">
+      <Position>9</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45345</StateNumber>
+    </column>
+    <index id="29" parent="14" name="deposits_pkey">
+      <ObjectId>28122</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="14" name="deposits_pkey">
+      <ObjectId>28123</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>deposits_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="31" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45346</StateNumber>
+      <SequenceName>meals_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;meals_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="32" parent="15" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>45346</StateNumber>
+    </column>
+    <column id="33" parent="15" name="member_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>45346</StateNumber>
+    </column>
+    <column id="34" parent="15" name="breakfast">
+      <Position>4</Position>
+      <DataType>double precision|0</DataType>
+      <StateNumber>45366</StateNumber>
+      <DefaultExpression>0.0</DefaultExpression>
+    </column>
+    <column id="35" parent="15" name="lunch">
+      <Position>5</Position>
+      <DataType>double precision|0</DataType>
+      <StateNumber>45366</StateNumber>
+      <DefaultExpression>0.0</DefaultExpression>
+    </column>
+    <column id="36" parent="15" name="dinner">
+      <Position>6</Position>
+      <DataType>double precision|0</DataType>
+      <StateNumber>45366</StateNumber>
+      <DefaultExpression>0.0</DefaultExpression>
+    </column>
+    <column id="37" parent="15" name="guest">
+      <Position>7</Position>
+      <DataType>double precision|0</DataType>
+      <StateNumber>45366</StateNumber>
+      <DefaultExpression>0.0</DefaultExpression>
+    </column>
+    <column id="38" parent="15" name="total">
+      <Position>8</Position>
+      <DataType>double precision|0</DataType>
+      <StateNumber>45366</StateNumber>
+      <DefaultExpression>0.0</DefaultExpression>
+    </column>
+    <column id="39" parent="15" name="created_at">
+      <Position>9</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45346</StateNumber>
+    </column>
+    <column id="40" parent="15" name="updated_at">
+      <Position>10</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45346</StateNumber>
+    </column>
+    <index id="41" parent="15" name="meals_pkey">
+      <ObjectId>28130</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="42" parent="15" name="meals_pkey">
+      <ObjectId>28131</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>meals_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="43" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45344</StateNumber>
+      <SequenceName>members_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;members_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="44" parent="16" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>45344</StateNumber>
+    </column>
+    <column id="45" parent="16" name="name">
+      <Position>3</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>45344</StateNumber>
+    </column>
+    <column id="46" parent="16" name="phone">
+      <Position>4</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>45344</StateNumber>
+    </column>
+    <column id="47" parent="16" name="address">
+      <Position>5</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>45344</StateNumber>
+    </column>
+    <column id="48" parent="16" name="created_at">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45344</StateNumber>
+    </column>
+    <column id="49" parent="16" name="updated_at">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45344</StateNumber>
+    </column>
+    <index id="50" parent="16" name="members_pkey">
+      <ObjectId>28111</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="51" parent="16" name="members_pkey">
+      <ObjectId>28112</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>members_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="17" name="version">
+      <Position>1</Position>
+      <DataType>varchar|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45341</StateNumber>
+    </column>
+    <index id="53" parent="17" name="unique_schema_migrations">
+      <ObjectId>28085</ObjectId>
+      <ColNames>version</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <column id="54" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45347</StateNumber>
+      <SequenceName>services_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;services_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="55" parent="18" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>45347</StateNumber>
+    </column>
+    <column id="56" parent="18" name="name">
+      <Position>3</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>45347</StateNumber>
+    </column>
+    <column id="57" parent="18" name="amount">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>45366</StateNumber>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="58" parent="18" name="created_at">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45347</StateNumber>
+    </column>
+    <column id="59" parent="18" name="updated_at">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45347</StateNumber>
+    </column>
+    <index id="60" parent="18" name="services_pkey">
+      <ObjectId>28141</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="61" parent="18" name="services_pkey">
+      <ObjectId>28142</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>services_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="62" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45343</StateNumber>
+      <SequenceName>users_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="63" parent="19" name="email">
+      <Position>2</Position>
+      <DataType>varchar|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45343</StateNumber>
+      <DefaultExpression>&apos;&apos;::character varying</DefaultExpression>
+    </column>
+    <column id="64" parent="19" name="encrypted_password">
+      <Position>3</Position>
+      <DataType>varchar|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45343</StateNumber>
+      <DefaultExpression>&apos;&apos;::character varying</DefaultExpression>
+    </column>
+    <column id="65" parent="19" name="reset_password_token">
+      <Position>4</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>45343</StateNumber>
+    </column>
+    <column id="66" parent="19" name="reset_password_sent_at">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>45343</StateNumber>
+    </column>
+    <column id="67" parent="19" name="remember_created_at">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>45343</StateNumber>
+    </column>
+    <column id="68" parent="19" name="sign_in_count">
+      <Position>7</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45343</StateNumber>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="69" parent="19" name="current_sign_in_at">
+      <Position>8</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>45343</StateNumber>
+    </column>
+    <column id="70" parent="19" name="last_sign_in_at">
+      <Position>9</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>45343</StateNumber>
+    </column>
+    <column id="71" parent="19" name="current_sign_in_ip">
+      <Position>10</Position>
+      <DataType>inet|0</DataType>
+      <StateNumber>45343</StateNumber>
+    </column>
+    <column id="72" parent="19" name="last_sign_in_ip">
+      <Position>11</Position>
+      <DataType>inet|0</DataType>
+      <StateNumber>45343</StateNumber>
+    </column>
+    <column id="73" parent="19" name="created_at">
+      <Position>12</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45343</StateNumber>
+    </column>
+    <column id="74" parent="19" name="updated_at">
+      <Position>13</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>45343</StateNumber>
+    </column>
+    <index id="75" parent="19" name="users_pkey">
+      <ObjectId>28098</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="76" parent="19" name="index_users_on_email">
+      <ObjectId>28100</ObjectId>
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="77" parent="19" name="index_users_on_reset_password_token">
+      <ObjectId>28101</ObjectId>
+      <ColNames>reset_password_token</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="78" parent="19" name="users_pkey">
+      <ObjectId>28099</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

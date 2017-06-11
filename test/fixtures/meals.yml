@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  member_id: 1
+  breakfast: 1.5
+  lunch: 1.5
+  dinner: 1.5
+  guest: 1.5
+  total: 1.5
+
+two:
+  user_id: 1
+  member_id: 1
+  breakfast: 1.5
+  lunch: 1.5
+  dinner: 1.5
+  guest: 1.5
+  total: 1.5
