@@ -4,7 +4,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
+    @members = current_user.members.all
   end
 
   # GET /members/1
@@ -14,7 +14,7 @@ class MembersController < ApplicationController
 
   # GET /members/new
   def new
-    @member = Member.new
+    @member = current_user.members.new
   end
 
   # GET /members/1/edit
@@ -64,7 +64,7 @@ class MembersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member
-      @member = Member.find(params[:id])
+      @member = current_user.members.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

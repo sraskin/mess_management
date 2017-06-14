@@ -4,7 +4,7 @@ class DepositsController < ApplicationController
   # GET /deposits
   # GET /deposits.json
   def index
-    @deposits = Deposit.all
+    @deposits = current_user.deposits.all
   end
 
   # GET /deposits/1
@@ -14,7 +14,7 @@ class DepositsController < ApplicationController
 
   # GET /deposits/new
   def new
-    @deposit = Deposit.new
+    @deposit = current_user.deposits.new
   end
 
   # GET /deposits/1/edit
@@ -64,7 +64,7 @@ class DepositsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_deposit
-      @deposit = Deposit.find(params[:id])
+      @deposit = current_user.deposits.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

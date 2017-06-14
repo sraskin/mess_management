@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
+    @services = current_user.services.all
   end
 
   # GET /services/1
@@ -14,7 +14,7 @@ class ServicesController < ApplicationController
 
   # GET /services/new
   def new
-    @service = Service.new
+    @service = current_user.services.new
   end
 
   # GET /services/1/edit
@@ -64,7 +64,7 @@ class ServicesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service
-      @service = Service.find(params[:id])
+      @service = current_user.services.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
