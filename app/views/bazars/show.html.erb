@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bazar.user_id %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @bazar.member_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bazar.name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @bazar.amount %>
+</p>
+
+<p>
+  <strong>Other expence:</strong>
+  <%= @bazar.other_expense %>
+</p>
+
+<p>
+  <strong>Other amount:</strong>
+  <%= @bazar.other_amount %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @bazar.date %>
+</p>
+
+<%= link_to 'Edit', edit_bazar_path(@bazar) %> |
+<%= link_to 'Back', bazars_path %>

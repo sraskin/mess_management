@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: meals
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  member_id  :integer
+#  breakfast  :float            default(0.0)
+#  lunch      :float            default(0.0)
+#  dinner     :float            default(0.0)
+#  guest      :float            default(0.0)
+#  total      :float            default(0.0)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

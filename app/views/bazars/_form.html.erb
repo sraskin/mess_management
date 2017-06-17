@@ -1,0 +1,41 @@
+<%= form_for(@bazar) do |f| %>
+    <% if @bazar.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@bazar.errors.count, "error") %> prohibited this bazar from being saved:</h2>
+
+          <ul>
+            <% @bazar.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :member_id %><br>
+      <%= f.collection_select :member_id, current_user.members.all, :id, :name %>
+    </div>
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_area :name %>
+    </div>
+    <div class="field">
+      <%= f.label :amount %><br>
+      <%= f.number_field :amount %>
+    </div>
+    <div class="field">
+      <%= f.label :other_expense %><br>
+      <%= f.text_field :other_expense %>
+    </div>
+    <div class="field">
+      <%= f.label :other_amount %><br>
+      <%= f.number_field :other_amount %>
+    </div>
+    <div class="field">
+      <%= f.label :date %><br>
+      <%= f.datetime_select :date %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

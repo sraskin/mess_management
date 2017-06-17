@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  member_id: 1
+  name: MyText
+  amount: 1
+  other_expence: MyString
+  other_amount: 1
+  date: 2017-06-17 16:22:39
+
+two:
+  user_id: 
+  member_id: 1
+  name: MyText
+  amount: 1
+  other_expence: MyString
+  other_amount: 1
+  date: 2017-06-17 16:22:39

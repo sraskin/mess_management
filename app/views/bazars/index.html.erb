@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bazars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Member</th>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Other expence</th>
+      <th>Other amount</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bazars.each do |bazar| %>
+      <tr>
+        <td><%= bazar.user_id %></td>
+        <td><%= bazar.member_id %></td>
+        <td><%= bazar.name %></td>
+        <td><%= bazar.amount %></td>
+        <td><%= bazar.other_expense %></td>
+        <td><%= bazar.other_amount %></td>
+        <td><%= bazar.date %></td>
+        <td><%= link_to 'Show', bazar %></td>
+        <td><%= link_to 'Edit', edit_bazar_path(bazar) %></td>
+        <td><%= link_to 'Destroy', bazar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bazar', new_bazar_path %>
