@@ -47,4 +47,4 @@ end
 
 gem 'devise'
 gem 'pry'
-gem 'unicorn'
+gem 'puma'
