@@ -1,51 +1,355 @@
-<h1>Home#index</h1>
-<% if user_signed_in? %>
-    <li>
-      <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-    </li>
-<% else %>
-    <li>
-      <%= link_to('Login', new_user_session_path) %>
-    </li>
-<% end %>
+<div class="all-wrapper menu-side">
+  <div class="layout-w">
+    <%= render 'top_nav_mobile' %>
+    <%= render 'top_nav_web' %>
+    <div class="content-w">
+      <div class="top-menu-secondary">
+        <ul>
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Customers</a></li>
+          <li><a href="#">Reports</a></li>
+        </ul>
+      </div>
+      <div class="content-i">
+        <div class="content-box">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="element-wrapper">
+                <h6 class="element-header">Mess Dashboard</h6>
+                <div class="element-content">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="element-box el-tablo">
+                        <div class="label">TOTAL MEAL</div>
+                        <div class="value"><%= @total_meal %></div>
+                        <div class="trending trending-up-basic">
+                          <i class="os-icon os-icon-user-male-circle"></i>&nbsp;<span>Add new</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="element-box el-tablo">
+                        <div class="label">Meal Rate</div>
+                        <div class="value"><%= @meal_rate %></div>
+                        <div class="trending trending-up-basic">
+                          <i class="os-icon os-icon-user-male-circle"></i>&nbsp;<span>Add new</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="element-box el-tablo">
+                        <div class="label">Total Deposite</div>
+                        <div class="value"><%= @total_deposit+@total_bazar %> TK</div>
+                        <div class="trending trending-up-basic">
+                          <i class="os-icon os-icon-user-male-circle"></i>&nbsp;<span>Add new</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="element-box el-tablo">
+                        <div class="label">Total Bazar</div>
+                        <div class="value"><%= @total_bazar %> TK</div>
+                        <div class="trending trending-up-basic">
+                          <i class="os-icon os-icon-user-male-circle"></i>&nbsp;<span>Add new</span></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="element-box el-tablo">
+                        <div class="label">Total Member</div>
+                        <div class="value"><%= Member.count %></div>
+                        <div class="trending trending-up-basic">
+                          <i class="os-icon os-icon-user-male-circle"></i>&nbsp;<span>Add new</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="element-wrapper">
+                <h6 class="element-header">Day wise review</h6>
+                <div class="element-box">
+                  <div class="element-info">
+                    <div class="row align-items-center">
+                      <div class="col-sm-8">
+                        <div class="element-info-with-icon">
+                          <div class="element-info-icon">
+                            <div class="os-icon os-icon-wallet-loaded"></div>
+                          </div>
+                          <div class="element-info-text">
+                            <h5 class="element-inner-header">Daily Meal Status</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="element-search"><input
+                        placeholder="Type to search for products..." type="text"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 col-xl-4">
+                      <div class="row">
+                        <div class="col-sm-6 b-r b-b">
+                          <div class="el-tablo centered padded">
+                            <div class="value">5</div>
+                            <div class="label">Breakfast</div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 b-b">
+                          <div class="el-tablo centered padded">
+                            <div class="value">8</div>
+                            <div class="label">Launch</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6 b-r">
+                          <div class="el-tablo centered padded">
+                            <div class="value">8</div>
+                            <div class="label">Dinner</div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="el-tablo centered padded">
+                            <div class="value">2</div>
+                            <div class="label">Guest</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-xl-4">
+                      <div class="padded b-l b-r">
+                        <div class="element-info-with-icon smaller">
+                          <div class="element-info-icon">
+                            <div class="os-icon os-icon-bar-chart-stats-up"></div>
+                          </div>
+                          <div class="element-info-text">
+                            <h5 class="element-inner-header">Remaining</h5>
+                            <div class="element-inner-desc">Calculated every month</div>
+                          </div>
+                        </div>
+                        <div class="os-progress-bar blue">
+                          <div class="bar-labels">
+                            <div class="bar-label-left"><span>Accessories</span><span
+                            class="positive">+10</span></div>
+                            <div class="bar-label-right"><span class="info">72/100</span>
+                            </div>
+                          </div>
+                          <div class="bar-level-1" style="width: 100%">
+                            <div class="bar-level-2" style="width: 90%">
+                              <div class="bar-level-3" style="width: 20%"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="os-progress-bar blue">
+                          <div class="bar-labels">
+                            <div class="bar-label-left"><span>Shoe Sales</span><span
+                            class="negative">-5</span></div>
+                            <div class="bar-label-right"><span class="info">62/100</span>
+                            </div>
+                          </div>
+                          <div class="bar-level-1" style="width: 100%">
+                            <div class="bar-level-2" style="width: 40%">
+                              <div class="bar-level-3" style="width: 10%"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="os-progress-bar blue">
+                          <div class="bar-labels">
+                            <div class="bar-label-left"><span>New Customers</span><span
+                            class="positive">+12</span></div>
+                            <div class="bar-label-right"><span class="info">78/100</span>
+                            </div>
+                          </div>
+                          <div class="bar-level-1" style="width: 100%">
+                            <div class="bar-level-2" style="width: 80%">
+                              <div class="bar-level-3" style="width: 50%"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hidden-lg-down col-xl-4">
+                      <div class="padded">
+                        <div class="el-tablo bigger">
+                          <div class="value">245</div>
+                          <div class="trending trending-up"><span>12%</span><i
+                          class="os-icon os-icon-arrow-up2"></i></div>
+                          <div class="label">Products Sold</div>
+                        </div>
+                        <div class="el-chart-w">
+                          <canvas height="100" id="liteLineChart" width="300"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="element-wrapper">
+                    <h6 class="element-header">Recent Orders</h6>
+                    <div class="element-box-tp">
+                      <div class="controls-above-table">
+                        <div class="row">
+                          <div class="col-sm-6"><a class="btn btn-sm btn-secondary" href="#">Download CSV</a>
+                            <a class="btn btn-sm btn-secondary" href="#">Archive</a>
+                            <a class="btn btn-sm btn-danger" href="#">Delete</a>
+                          </div>
+                          <div class="col-sm-6">
+                            <form class="form-inline justify-content-sm-end">
+                              <input class="form-control form-control-sm rounded bright" placeholder="Search" type="text">
+                              <select class="form-control form-control-sm rounded bright">
+                                <option selected="selected" value="">Select Status</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Active">Active</option>
+                                <option value="Cancelled">Cancelled</option>
+                              </select>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table table-bordered table-lg table-v2 table-striped">
+                          <thead>
+                          <tr>
+                            <th>Member</th>
+                            <th>Breakfast</th>
+                            <th>Launch</th>
+                            <th>Dinner</th>
+                            <th>Guest</th>
+                            <th>Total Meal</th>
+                            <th>Total Expense</th>
+                            <th>Total Bazar</th>
+                            <th>Total Deposit</th>
+                            <th>Service</th>
+                            <th>Remaining</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <%= render 'memberwise_calculation' %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="element-wrapper"><h6 class="element-header">New Orders</h6>
+                <div class="element-box">
+                  <div class="table-responsive">
+                    <table class="table table-lightborder">
+                      <thead>
+                      <tr>
+                        <th>Customer Name</th>
+                        <th>Products Ordered</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-right">Order Total</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td class="nowrap">John Mayers</td>
+                        <td>
+                          <div class="cell-image-list">
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio9.jpg)"></div>
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio2.jpg)"></div>
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio12.jpg)"></div>
+                            <div class="cell-img-more">+ 5 more</div>
+                          </div>
+                        </td>
+                        <td class="text-center">
+                          <div class="status-pill green" data-title="Complete"
+                               data-toggle="tooltip"></div>
+                        </td>
+                        <td class="text-right">$354</td>
+                      </tr>
+                      <tr>
+                        <td class="nowrap">Kelly Brans</td>
+                        <td>
+                          <div class="cell-image-list">
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio14.jpg)"></div>
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio8.jpg)"></div>
+                          </div>
+                        </td>
+                        <td class="text-center">
+                          <div class="status-pill red" data-title="Cancelled"
+                               data-toggle="tooltip"></div>
+                        </td>
+                        <td class="text-right">$94</td>
+                      </tr>
+                      <tr>
+                        <td class="nowrap">Tim Howard</td>
+                        <td>
+                          <div class="cell-image-list">
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio16.jpg)"></div>
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio14.jpg)"></div>
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio5.jpg)"></div>
+                          </div>
+                        </td>
+                        <td class="text-center">
+                          <div class="status-pill green" data-title="Complete"
+                               data-toggle="tooltip"></div>
+                        </td>
+                        <td class="text-right">$156</td>
+                      </tr>
+                      <tr>
+                        <td class="nowrap">Joe Trulli</td>
+                        <td>
+                          <div class="cell-image-list">
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio1.jpg)"></div>
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio5.jpg)"></div>
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio6.jpg)"></div>
+                            <div class="cell-img-more">+ 2 more</div>
+                          </div>
+                        </td>
+                        <td class="text-center">
+                          <div class="status-pill yellow" data-title="Pending"
+                               data-toggle="tooltip"></div>
+                        </td>
+                        <td class="text-right">$1,120</td>
+                      </tr>
+                      <tr>
+                        <td class="nowrap">Jerry Lingard</td>
+                        <td>
+                          <div class="cell-image-list">
+                            <div class="cell-img"
+                                 style="background-image: url(img/portfolio9.jpg)"></div>
+                          </div>
+                        </td>
+                        <td class="text-center">
+                          <div class="status-pill green" data-title="Complete"
+                               data-toggle="tooltip"></div>
+                        </td>
+                        <td class="text-right">$856</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<p>Total Meal: <strong><%= @total_meal %></strong></p>
-<p>Total Deposit: <strong><%= @total_deposit %></strong></p>
-<p>Meal Rate: <strong><%= (@total_deposit / @total_meal).round(2) %></strong></p>
-<p>Total member: <strong><%= Member.count %></strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="display-type"></div>
+</div>
 
-<% @members.each do |member| %>
-    <%
-      member_breakfasts = []
-      member_lunches = []
-      member_dinners = []
-      member_guests = []
-      member_meals = Meal.where("user_id = ? AND member_id = ?", current_user, member.id)
-      member_meals.each do |member_meal|
-        member_breakfast = member_meal.breakfast
-        member_breakfasts << member_breakfast
-        member_lunch = member_meal.lunch
-        member_lunches << member_lunch
-        member_dinner = member_meal.dinner
-        member_dinners << member_dinner
-        member_guest = member_meal.guest
-        member_guests << member_guest
-      end
-      total_member_breakfast = member_breakfasts.inject(0){|sum, a| sum + a}
-      total_member_lunch = member_lunches.inject(0){|sum, a| sum + a}
-      total_member_dinner = member_dinners.inject(0){|sum, a| sum + a}
-      total_member_guest = member_guests.inject(0){|sum, a| sum + a}
-      total = total_member_breakfast + total_member_lunch + total_member_dinner + total_member_guest
-
-       %>
-    <p>
-      <%= member.name %>
-      | breakfast: <%= total_member_breakfast %>
-      | lunch: <%= total_member_lunch %>
-      | dinner: <%= total_member_dinner %>
-      | guest: <%= total_member_guest %>
-      | total: <%= total %>
-      | expence: <%= (total * (@total_deposit / @total_meal)).round(2) %>
-    </p>
-<% end %>
 

@@ -1,0 +1,68 @@
+<div class="desktop-menu menu-side-compact-w menu-activated-on-hover color-scheme-dark">
+  <div class="logo-w">
+    <a class="logo" href="/">
+      <img src="/assets/logo.png"></a>
+  </div>
+  <div class="menu-and-user">
+    <div class="logged-user-w">
+      <div class="logged-user-i">
+        <div class="avatar-w">
+          <img alt="" src="/assets/avatar1.jpg">
+        </div>
+        <div class="logged-user-menu">
+          <div class="logged-user-avatar-info">
+            <div class="avatar-w">
+              <img alt="" src="/assets/avatar1.jpg">
+            </div>
+            <div class="logged-user-info-w">
+              <div class="logged-user-name">Maria Gomez</div>
+              <div class="logged-user-role">Administrator</div>
+            </div>
+          </div>
+          <div class="bg-icon"><i class="os-icon os-icon-wallet-loaded"></i></div>
+          <ul>
+            <li>
+              <a href="#"><i class="os-icon os-icon-mail-01"></i><span>Incoming Mail</span></a>
+            </li>
+            <li>
+              <a href="#"><i class="os-icon os-icon-user-male-circle2"></i><span>Profile Details</span></a>
+            </li>
+            <li>
+              <a href="#"><i class="os-icon os-icon-coins-4"></i><span>Billing Details</span></a>
+            </li>
+            <li>
+              <a href="#"><i class="os-icon os-icon-others-43"></i><span>Notifications</span></a>
+            </li>
+            <% if user_signed_in? %>
+                <li>
+                 <%= link_to('<i class="os-icon os-icon-signs-11"></i><span>Logout</span>'.html_safe, destroy_user_session_path, method: :delete) %>
+                </li>
+            <% else %>
+                <li>
+                  <%= link_to('<i class="os-icon os-icon-signs-11"></i><span>Login</span>'.html_safe, new_user_session_path) %>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <ul class="main-menu">
+      <li class="has-sub-menu"><a href="/">
+        <div class="icon-w"><i class="os-icon os-icon-window-content"></i></div>
+      </a>
+        <div class="sub-menu-w">
+          <div class="sub-menu-title">Dashboard</div>
+          <div class="sub-menu-icon"><i class="os-icon os-icon-window-content"></i></div>
+          <div class="sub-menu-i">
+            <ul class="sub-menu">
+              <li><a href="#">Dashboard 1</a></li>
+              <li><a href="#">Dashboard 2</a></li>
+              <li><a href="#">Dashboard
+                3</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

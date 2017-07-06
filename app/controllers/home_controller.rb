@@ -4,6 +4,9 @@ class HomeController < ApplicationController
     @members = current_user.members.all
     total_meal_calculation
     total_deposit_calculation
+    total_bazar_calculation
+    meal_rate
+    service_charge_counter
   end
 
   def total_meal_calculation
@@ -22,10 +25,10 @@ class HomeController < ApplicationController
       guest = meal.guest
       guests << guest
     end
-    @total_breakfast = breakfasts.inject(:+)
-    @total_lunch = lunches.inject(:+)
-    @total_dinner = dinners.inject(:+)
-    @total_guest = guests.inject(:+)
+    @total_breakfast = breakfasts.inject(0) {|sum, a| sum + a}
+    @total_lunch = lunches.inject(0) {|sum, a| sum + a}
+    @total_dinner = dinners.inject(0) {|sum, a| sum + a}
+    @total_guest = guests.inject(0) {|sum, a| sum + a}
     @total_meal = @total_breakfast + @total_lunch + @total_dinner + @total_guest
   end
 
@@ -36,7 +39,34 @@ class HomeController < ApplicationController
       amount = deposit.amount
       amounts << amount
     end
-    @total_deposit = amounts.inject(:+)
+    @total_deposit = amounts.inject(0) {|sum, a| sum + a}
+  end
+
+  def total_bazar_calculation
+    amounts = []
+    bazars = current_user.bazars.all
+    bazars.each do |bazar|
+      amount = bazar.amount
+      amounts << amount
+      other_amount = bazar.other_amount
+      amounts << other_amount
+    end
+    @total_bazar = amounts.inject(0) {|sum, a| sum + a}
+  end
+
+  def meal_rate
+    @meal_rate = (@total_bazar.to_f / @total_meal).round(2)
+  end
+
+  def service_charge_counter
+    total_amounts = []
+    amounts = current_user.services.all
+    amounts.each do |amount|
+      total = amount.amount
+      total_amounts << total
+    end
+    @total_service_charges = total_amounts.inject(0) {|sum, a| sum + a}
+    c = @total_service_charges / current_user.members.count
   end
 
   # def meal_count(id)

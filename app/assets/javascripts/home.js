@@ -1,0 +1,16 @@
+//= frontend/jquery.min.js
+//= frontend/moment.js
+//= frontend/Chart.min.js
+//= frontend/select2.full.min.js
+//= frontend/ckeditor.js
+//= frontend/validator.min.js
+//= frontend/daterangepicker.js
+//= frontend/dropzone.js
+//= frontend/mindmup-editabletable.js
+//= frontend/jquery.dataTables.min.js
+//= frontend/dataTables.bootstrap.min.js
+//= frontend/fullcalendar.min.js
+//= frontend/perfect-scrollbar.jquery.min.js
+//= frontend/util.js
+//= frontend/tab.js
+//= frontend/maina570.js

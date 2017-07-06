@@ -1,0 +1,68 @@
+
+  <% @members.each do |member| %>
+      <tr>
+        <%
+          member_breakfasts = []
+          member_lunches = []
+          member_dinners = []
+          member_guests = []
+          total_member_bazars = []
+          total_member_deposits = []
+
+          member_meals = Meal.where("user_id = ? AND member_id = ?", current_user, member.id)
+          member_bazars = Bazar.where("user_id = ? AND member_id = ?", current_user, member.id)
+          member_deposits = Deposit.where("user_id = ? AND member_id = ?", current_user, member.id)
+
+          member_meals.each do |member_meal|
+            member_breakfast = member_meal.breakfast
+            member_breakfasts << member_breakfast
+            member_lunch = member_meal.lunch
+            member_lunches << member_lunch
+            member_dinner = member_meal.dinner
+            member_dinners << member_dinner
+            member_guest = member_meal.guest
+            member_guests << member_guest
+          end
+          total_member_breakfast = member_breakfasts.inject(0) {|sum, a| sum + a}
+          total_member_lunch = member_lunches.inject(0) {|sum, a| sum + a}
+          total_member_dinner = member_dinners.inject(0) {|sum, a| sum + a}
+          total_member_guest = member_guests.inject(0) {|sum, a| sum + a}
+          total = total_member_breakfast + total_member_lunch + total_member_dinner + total_member_guest
+
+          member_bazars.each do |member_bazar|
+            amount = member_bazar.amount
+            total_member_bazars << amount
+            other = member_bazar.other_amount
+            total_member_bazars << other
+          end
+          total_member_bazar = total_member_bazars.inject(0) {|sum, a| sum + a}
+
+          member_deposits.each do |member_deposit|
+            amount = member_deposit.amount
+            total_member_deposits << amount
+          end
+          total_member_deposit = total_member_deposits.inject(0) {|sum, a| sum + a}
+        %>
+        <td><%= member.name %></td>
+        <td><%= total_member_breakfast %></td>
+        <td><%= total_member_lunch %></td>
+        <td><%= total_member_dinner %></td>
+        <td><%= total_member_guest %></td>
+        <td><%= total %></td>
+        <td><%= (total * @meal_rate).round(2) %></td>
+        <td><%= total_member_bazar %></td>
+        <td><%= total_member_deposit + total_member_bazar %></td>
+        <td><%= @service_charge_perperson %></td>
+        <td><%# ((total_member_deposit + total_member_bazar) - ((total * @meal_rate)+@service_charge_perperson)).round(2) %></td>
+        <td class="text-center">
+          <div class="status-pill green" data-title="Complete" data-toggle="tooltip"></div>
+        </td>
+        <td class="row-actions">
+          <a href="#"><i class="os-icon os-icon-pencil-2"></i></a>
+          <a href="#"><i class="os-icon os-icon-link-3"></i></a>
+          <a class="danger" href="#"><i class="os-icon os-icon-database-remove"></i></a>
+        </td>
+      </tr>
+  <% end %>
+
+
