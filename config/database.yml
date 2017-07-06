@@ -4,13 +4,24 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  username: <%= ENV['MESS_MANAGEMENT_DATABASE_USER'] %>
-  password: <%= ENV['MESS_MANAGEMENT_DATABASE_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: meal_cms_development
+
+  # The specified database role being used to connect to postgres.
+  # To create additional roles in postgres see `$ createuser --help`.
+  # When left blank, postgres will use the default role. This is
+  # the same name as the operating system user that initialized the database.
+  username: sraskin
+
+  # The password associated with the postgres role (username).
+  password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  host: localhost
+  #host: localhost
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
@@ -27,7 +38,10 @@ default: &default
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or productio
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: meal_cms_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -51,6 +65,7 @@ default: &default
 
 production:
   <<: *default
-  database: mess_management_production
-  username: <%= ENV['MESS_MANAGEMENT_DATABASE_USER'] %>
-  password: <%= ENV['MESS_MANAGEMENT_DATABASE_PASSWORD'] %>
+  database: meal_cms_production
+  username: meal_cms
+  password: <%= ENV['MEAL_CMS_DATABASE_PASSWORD'] %>
+
