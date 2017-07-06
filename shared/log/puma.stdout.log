@@ -1,3 +1,6 @@
 === puma startup: 2017-07-06 10:34:11 +0000 ===
 [3358] * Starting control server on unix:///tmp/puma-status-1499337251286-3358
 [3358] - Worker 0 (pid: 3404) booted, phase: 0
+[3358] - Gracefully shutting down workers...
+[3358] === puma shutdown: 2017-07-06 11:14:14 +0000 ===
+[3358] - Goodbye!
