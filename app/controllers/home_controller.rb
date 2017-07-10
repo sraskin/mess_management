@@ -66,7 +66,7 @@ class HomeController < ApplicationController
       total_amounts << total
     end
     @total_service_charges = total_amounts.inject(0) {|sum, a| sum + a}
-    c = @total_service_charges / current_user.members.count
+    #@service_charge_perperson =  current_user.members.count / @total_service_charges
   end
 
   # def meal_count(id)
